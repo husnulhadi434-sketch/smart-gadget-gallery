@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Smart Gadget Gallery</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    
+    <style>
+        /* General body styling for background */
+        body {
+            background-color: #f7f7f7;
+        }
+
+        /* Override jQuery Mobile's default styling for header/footer */
+        .ui-header, .ui-footer {
+            background-color: #007bff !important; /* Blue header/footer */
+            color: white !important;
+            border: none !important;
+        }
+
+        /* Style for the content of the gallery items */
+        .product-card {
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Image sizing within the card */
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            max-height: 150px; /* Constrain image height */
+            margin-bottom: 10px;
+            object-fit: contain;
+        }
+
+        /* Style the 'About' section header */
+        #about-page .ui-content h3 {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            margin: -15px -15px 15px -15px; /* Extend to fill content area */
+        }
+        
+        /* Style the Bootstrap modal header */
+        #productModal .modal-header {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div data-role="page" id="gallery-page">
+
+    <div data-role="header" data-position="fixed">
+        <h1>Smart Gadget Gallery</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-6 col-sm-6 col-md-3">
+                    <div class="product-card" data-name="Smartphone X1" data-price="RM1299" data-desc="High-performance smartphone with stunning display and camera.">
+                        <img src="images/smartphone.png" alt="Smartphone X1">
+                        <h4>Iphone 17 Pro Max</h4>
+                        <p class="text-primary font-weight-bold">RM9999</p>
+                        <button type="button" class="btn btn-primary view-details-btn" data-toggle="modal" data-target="#productModal">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-3">
+                    <div class="product-card" data-name="Wireless Earbuds" data-price="RM299" data-desc="Crystal clear audio quality with long-lasting battery life.">
+                        <img src="images/earbuds.png" alt="Wireless Earbuds">
+                        <h4>Wireless Earbuds</h4>
+                        <p class="text-primary font-weight-bold">RM299</p>
+                        <button type="button" class="btn btn-primary view-details-btn" data-toggle="modal" data-target="#productModal">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-3">
+                    <div class="product-card" data-name="Smartwatch Pro" data-price="RM499" data-desc="Robust smartwatch with advanced fitness tracking and heart rate monitor.">
+                        <img src="images/smartwatch.png" alt="Smartwatch Pro">
+                        <h4>Smartwatch Pro</h4>
+                        <p class="text-primary font-weight-bold">RM499</p>
+                        <button type="button" class="btn btn-primary view-details-btn" data-toggle="modal" data-target="#productModal">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-3">
+                    <div class="product-card" data-name="Bluetooth Speaker" data-price="RM199" data-desc="Portable and powerful speaker with deep bass and great volume.">
+                        <img src="images/speaker.png" alt="Bluetooth Speaker">
+                        <h4>Bluetooth Speaker</h4>
+                        <p class="text-primary font-weight-bold">RM199</p>
+                        <button type="button" class="btn btn-primary view-details-btn" data-toggle="modal" data-target="#productModal">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div> </div> </div>
+
+    <div data-role="footer" data-position="fixed">
+        <a href="#about-page" class="ui-btn ui-shadow ui-corner-all">About / Contact</a>
+    </div>
+
+</div>
+
+<div data-role="page" id="about-page" data-transition="slide">
+
+    <div data-role="header" data-position="fixed">
+        <h1>About This App</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+        <div class="about-container">
+            <h3>About This App</h3>
+            <p><strong>Smart Gadget Gallery</strong> demonstrates how <strong>JavaScript</strong>, <strong>Bootstrap</strong>, and <strong>jQuery Mobile</strong> can be integrated to create a responsive and interactive web app.</p>
+            
+            <hr>
+
+            <h4>Developer Info</h4>
+            <ul>
+                <li><strong>Name:</strong> Husnul Hadi Bin Ropi</li>
+                <li><strong>Student ID:</strong> 13DIT24F1o79</li>
+                <li><strong>Course:</strong> Web Design Technology</li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <a href="#gallery-page" class="ui-btn ui-shadow ui-corner-all">Back to Gallery</a>
+    </div>
+
+</div>
+
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modal-product-image" src="" alt="Product Image" style="max-width: 150px; height: auto; margin-bottom: 15px;">
+                <p class="text-primary font-weight-bold" id="modal-product-price">Price: -</p>
+                <p id="modal-product-desc"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script>
+    $(document).on('click', '.view-details-btn', function() {
+        // Find the parent product-card div
+        var $productCard = $(this).closest('.product-card');
+        
+        // Get data from the product-card's data attributes
+        var name = $productCard.data('name');
+        var price = $productCard.data('price');
+        var desc = $productCard.data('desc');
+        
+        // Get the image source (assuming the image is the first one inside the card)
+        var imgSrc = $productCard.find('img').attr('src');
+
+        // Populate the Bootstrap Modal
+        $('#productModalLabel').text(name);
+        $('#modal-product-image').attr('src', imgSrc);
+        $('#modal-product-price').text('Price: ' + price);
+        $('#modal-product-desc').text(desc);
+
+        // Show the modal (Bootstrap handles this, but it's good practice to ensure it's ready)
+        // Note: The button's data-toggle="modal" handles the initial show
+    });
+    
+    // Optional: Hide jQuery Mobile's default loader when a Bootstrap modal is shown
+    // This prevents conflicting UI elements during the modal view
+    $('#productModal').on('show.bs.modal', function () {
+        $.mobile.loading('hide');
+    });
+</script>
+
+</body>
+</html></html>
